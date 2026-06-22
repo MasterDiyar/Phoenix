@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c30lxpy4rfpvb"]
+
+[ext_resource type="Script" uid="uid://dxohpltlsygju" path="res://scripts/player/Player.cs" id="1_6xwf8"]
+[ext_resource type="PackedScene" uid="uid://c671swn70nqku" path="res://scenes/anims/player_animation.tscn" id="1_nua8h"]
+[ext_resource type="Script" uid="uid://6ua6yqx2kms" path="res://scripts/resource/UnitResource.cs" id="2_jqip1"]
+[ext_resource type="PackedScene" uid="uid://bxlxna53st3p2" path="res://scenes/anims/hand.tscn" id="4_8h6vd"]
+
+[sub_resource type="Resource" id="Resource_8h6vd"]
+script = ExtResource("2_jqip1")
+MaxSpeed = 300.0
+metadata/_custom_type_script = "uid://6ua6yqx2kms"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xwf8"]
+radius = 5.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" unique_id=273667404 node_paths=PackedStringArray("PlayerAnimation")]
+texture_filter = 3
+script = ExtResource("1_6xwf8")
+playerResource = SubResource("Resource_8h6vd")
+PlayerAnimation = NodePath("player_animation")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1865690906]
+shape = SubResource("CapsuleShape2D_6xwf8")
+
+[node name="player_animation" parent="." unique_id=1808848261 instance=ExtResource("1_nua8h")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=629532967]
+zoom = Vector2(3, 3)
+position_smoothing_speed = 1.0
+
+[node name="hand_pos" type="Node2D" parent="." unique_id=1137848882]
+position = Vector2(-2, 3)
+
+[node name="Hand" parent="hand_pos" unique_id=1192027202 instance=ExtResource("4_8h6vd")]

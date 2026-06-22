@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bxlxna53st3p2"]
+
+[ext_resource type="Texture2D" uid="uid://cm0dxunk8pgow" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Characters/Human/IDLE/tools_idle_strip9.png" id="1_7wv70"]
+[ext_resource type="Script" uid="uid://dfajlxvefq8wf" path="res://scripts/player/Hand.cs" id="2_fbdu3"]
+
+[node name="Hand" type="Sprite2D" unique_id=1192027202]
+texture_filter = 3
+texture = ExtResource("1_7wv70")
+region_enabled = true
+region_rect = Rect2(329, 35, 5, 4)
+script = ExtResource("2_fbdu3")
