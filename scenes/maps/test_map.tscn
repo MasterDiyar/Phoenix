@@ -5242,6 +5242,7 @@ texture = ExtResource("1_ybdod")
 sources/0 = SubResource("TileSetAtlasSource_qoqmi")
 
 [node name="map" type="Node2D" unique_id=1949582452]
+texture_filter = 3
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1125457213]
 
