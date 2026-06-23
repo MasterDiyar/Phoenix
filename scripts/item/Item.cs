@@ -12,6 +12,6 @@ public partial class Item : Node2D
 	public override void _Ready()
 	{
 		AddChild(ItemResource.ItemAction.Instantiate());
-		AddChild(ItemResource.ItemIcon.Instantiate());
+		//AddChild(ItemResource.ItemIcon.Instantiate());
 	}
 }
