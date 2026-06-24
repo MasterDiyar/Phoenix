@@ -2,5 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bhysjawqdtsvd" path="res://scripts/item/Item.cs" id="1_vum50"]
 
-[node name="Item" type="Node2D" unique_id=1227412727]
+[node name="Item" type="Node2D" unique_id=1227412727 node_paths=PackedStringArray("ItemIcon")]
 script = ExtResource("1_vum50")
+ItemIcon = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1518454645]

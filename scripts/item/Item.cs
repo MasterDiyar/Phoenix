@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Dorozhniyi.scripts.item;
 using Dorozhniyi.scripts.unit;
 
 public partial class Item : Node2D
@@ -11,7 +12,22 @@ public partial class Item : Node2D
 
 	public override void _Ready()
 	{
-		AddChild(ItemResource.ItemAction.Instantiate());
+		if (ItemResource == null) return; 
+		foreach (var node in ItemResource.ItemAction) 
+			AddChild(node.Instantiate());
 		ItemIcon.Texture = ItemResource.ItemIcon;
+		ItemIcon.FlipH = ItemResource.HFlip;
+		ItemIcon.FlipV = ItemResource.VFlip;
+	}
+	
+	public void SetItemResource(ItemResource itemResource)
+	{
+		foreach (var node in GetChildren()) {
+			if (node is not ItemAction act) continue;
+			act.UnBind();
+			act.QueueFree();
+		}
+		ItemResource = itemResource;
+		_Ready();
 	}
 }

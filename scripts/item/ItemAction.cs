@@ -14,6 +14,12 @@ public abstract partial class ItemAction : Node2D
         _item.RightClick += ItemOnRightClick;
     }
 
+    public void UnBind()
+    {
+        _item.LeftClick -= ItemOnLeftClick;
+        _item.RightClick -= ItemOnRightClick;
+    }
+
     protected abstract void ItemOnLeftClick(Vector2 fromPosition, Vector2 toPosition, Entity entity);
     protected abstract void ItemOnRightClick(Vector2 fromPosition, Vector2 toPosition, Entity entity);
 }

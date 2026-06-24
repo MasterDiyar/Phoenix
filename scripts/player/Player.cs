@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Dorozhniyi.scripts.player.inventory;
 using Dorozhniyi.scripts.resource;
 using Dorozhniyi.scripts.unit;
 
@@ -10,12 +11,13 @@ public partial class Player : Entity
 	[Export] public float Acceleration = 300.0f; 
 	[Export] public float Friction = 2000.0f;
 	
-	private float MaxSpeed = 0;
-	private float MaxHp = 0;
-
-	public Item OnHandItem = null;
+	[Export] public Item OnHandItem;
+	[Export] public Inventory Inventory;
 	
 	[Export] public PlayerAnimation PlayerAnimation;
+	
+	private float MaxSpeed = 0;
+	private float MaxHp = 0;
 
 	public override void _Ready()
 	{
@@ -36,7 +38,7 @@ public partial class Player : Entity
 	{
 		if (@event.IsActionPressed("lm"))
 		{
-			OnHandItem.EmitSignal(nameof(OnHandItem.LeftClick));
+			OnHandItem.EmitSignal(Item.SignalName.LeftClick, GlobalPosition, GetGlobalMousePosition(), this);
 		}
 	}
 
