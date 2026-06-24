@@ -5,21 +5,22 @@ namespace Dorozhniyi.scripts.item;
 
 public abstract partial class ItemAction : Node2D
 {
-    protected Item _item;
+    protected Item _parent;
+    protected bool _onUse = false;
 
     public override void _Ready()
     {
-        _item = GetParent<Item>();
-        _item.LeftClick += ItemOnLeftClick;
-        _item.RightClick += ItemOnRightClick;
+        _parent = GetParent<Item>();
+        _parent.LeftClick += ParentOnLeftClick;
+        _parent.RightClick += ParentOnRightClick;
     }
 
     public void UnBind()
     {
-        _item.LeftClick -= ItemOnLeftClick;
-        _item.RightClick -= ItemOnRightClick;
+        _parent.LeftClick -= ParentOnLeftClick;
+        _parent.RightClick -= ParentOnRightClick;
     }
 
-    protected abstract void ItemOnLeftClick(Vector2 fromPosition, Vector2 toPosition, Entity entity);
-    protected abstract void ItemOnRightClick(Vector2 fromPosition, Vector2 toPosition, Entity entity);
+    protected abstract void ParentOnLeftClick(Vector2 fromPosition, Vector2 toPosition, Entity entity);
+    protected abstract void ParentOnRightClick(Vector2 fromPosition, Vector2 toPosition, Entity entity);
 }

@@ -14,4 +14,5 @@ ItemIcon = SubResource("AtlasTexture_ulb5y")
 HFlip = true
 ItemAction = Array[PackedScene]([ExtResource("1_ulb5y")])
 Damage = 20.0
+UseSpeed = 0.625
 metadata/_custom_type_script = "uid://vmycqs3q7rst"

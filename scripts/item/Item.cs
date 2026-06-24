@@ -9,12 +9,17 @@ public partial class Item : Node2D
 	[Export] public Sprite2D ItemIcon;
 	[Signal] public delegate void LeftClickEventHandler(Vector2 fromPosition, Vector2 toPosition, Entity entity);
 	[Signal] public delegate void RightClickEventHandler(Vector2 fromPosition, Vector2 toPosition, Entity entity);
-
+	
+	[Signal] public delegate void ActionAddedEventHandler(ItemAction action);
 	public override void _Ready()
 	{
 		if (ItemResource == null) return; 
-		foreach (var node in ItemResource.ItemAction) 
-			AddChild(node.Instantiate());
+		foreach (var node in ItemResource.ItemAction)
+		{
+			var act = node.Instantiate<ItemAction>();
+			AddChild(act);
+			EmitSignal(SignalName.ActionAdded, act);
+		}
 		ItemIcon.Texture = ItemResource.ItemIcon;
 		ItemIcon.FlipH = ItemResource.HFlip;
 		ItemIcon.FlipV = ItemResource.VFlip;
