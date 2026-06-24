@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://1w7vwbl2vy6m"]
+
+[ext_resource type="Script" uid="uid://vmycqs3q7rst" path="res://scripts/resource/ItemResource.cs" id="1_dm3ku"]
+[ext_resource type="Texture2D" uid="uid://dlwaas4rli7fs" path="res://assets/File 2025.png" id="1_qlbru"]
+[ext_resource type="PackedScene" uid="uid://co06xie5vpopm" path="res://scenes/actions/swing_action.tscn" id="1_ulb5y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulb5y"]
+atlas = ExtResource("1_qlbru")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_dm3ku")
+ItemIcon = SubResource("AtlasTexture_ulb5y")
+HFlip = true
+ItemAction = Array[PackedScene]([ExtResource("1_ulb5y")])
+Damage = 20.0
+metadata/_custom_type_script = "uid://vmycqs3q7rst"

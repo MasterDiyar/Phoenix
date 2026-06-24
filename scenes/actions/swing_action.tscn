@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://co06xie5vpopm"]
+
+[ext_resource type="Script" uid="uid://cfmxscadflgbq" path="res://scripts/weapon/AttackAction.cs" id="1_16yja"]
+
+[node name="SwingAction" type="Node2D" unique_id=1550304438]
+script = ExtResource("1_16yja")
