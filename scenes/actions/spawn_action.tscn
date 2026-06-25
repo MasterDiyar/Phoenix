@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://35vqole8py7s"]
+
+[ext_resource type="Script" uid="uid://c3s4w3plly1kd" path="res://scripts/weapon/SpawnAction.cs" id="1_p0ny1"]
+
+[node name="SpawnAction" type="Node2D" unique_id=1492418817]
+script = ExtResource("1_p0ny1")

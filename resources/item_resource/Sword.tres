@@ -3,16 +3,39 @@
 [ext_resource type="Script" uid="uid://vmycqs3q7rst" path="res://scripts/resource/ItemResource.cs" id="1_dm3ku"]
 [ext_resource type="Texture2D" uid="uid://dlwaas4rli7fs" path="res://assets/File 2025.png" id="1_qlbru"]
 [ext_resource type="PackedScene" uid="uid://co06xie5vpopm" path="res://scenes/actions/swing_action.tscn" id="1_ulb5y"]
+[ext_resource type="PackedScene" uid="uid://35vqole8py7s" path="res://scenes/actions/spawn_action.tscn" id="2_g72so"]
+[ext_resource type="Texture2D" uid="uid://yrlxfsw1kyu7" path="res://assets/Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock4.png" id="3_eiuwi"]
+[ext_resource type="PackedScene" uid="uid://b17x51a7pjdq8" path="res://scenes/prefab/round_bullet.tscn" id="3_vjqeq"]
+[ext_resource type="Script" uid="uid://c6omy8yekmsch" path="res://scripts/resource/BulletResource.cs" id="4_vjqeq"]
+[ext_resource type="Script" uid="uid://bbnk4ptxnf8nl" path="res://scripts/resource/effects/BulletEffect.cs" id="5_g72so"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulb5y"]
 atlas = ExtResource("1_qlbru")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="Resource" id="Resource_u03g0"]
+script = ExtResource("4_vjqeq")
+Icon = ExtResource("3_eiuwi")
+Speed = 5.0
+LifeTime = 1.0
+metadata/_custom_type_script = "uid://c6omy8yekmsch"
+
+[sub_resource type="Resource" id="Resource_ulb5y"]
+script = ExtResource("5_g72so")
+resource = SubResource("Resource_u03g0")
+metadata/_custom_type_script = "uid://bbnk4ptxnf8nl"
+
 [resource]
 script = ExtResource("1_dm3ku")
+Name = "sword"
+Description = "first sword"
+Type = "sword"
+Rarity = 2
 ItemIcon = SubResource("AtlasTexture_ulb5y")
 HFlip = true
-ItemAction = Array[PackedScene]([ExtResource("1_ulb5y")])
+ItemAction = Array[PackedScene]([ExtResource("1_ulb5y"), ExtResource("2_g72so")])
 Damage = 20.0
 UseSpeed = 0.625
+initialEffects = Array[Object]([SubResource("Resource_ulb5y")])
+LeftSpawnScene = ExtResource("3_vjqeq")
 metadata/_custom_type_script = "uid://vmycqs3q7rst"

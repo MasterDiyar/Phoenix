@@ -6,8 +6,6 @@ using Dorozhniyi.scripts.unit;
 
 public partial class Player : Entity
 {
-	[Export] UnitResource playerResource;
-
 	[Export] public float Acceleration = 300.0f; 
 	[Export] public float Friction = 2000.0f;
 	
@@ -15,13 +13,9 @@ public partial class Player : Entity
 	[Export] public Inventory Inventory;
 	
 	[Export] public PlayerAnimation PlayerAnimation;
-	
-	private float MaxSpeed = 0;
-	private float MaxHp = 0;
-
 	public override void _Ready()
 	{
-		MaxSpeed = playerResource.MaxSpeed;
+		base._Ready();
 	}
 
 	public override void _PhysicsProcess(double delta)

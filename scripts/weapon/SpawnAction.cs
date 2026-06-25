@@ -35,7 +35,7 @@ public partial class SpawnAction : ItemAction
         switch (What)
         {
             case WhatToSpawn.Bullet:
-                SpawnBullet(lScene, fromPosition, toPosition);
+                SpawnBullet(lScene, fromPosition, toPosition, entity);
                 break;
         }
     }
@@ -45,7 +45,7 @@ public partial class SpawnAction : ItemAction
         throw new System.NotImplementedException();
     }
 
-    async Task SpawnBullet(PackedScene scene, Vector2 fromPosition, Vector2 toPosition)
+    async Task SpawnBullet(PackedScene scene, Vector2 fromPosition, Vector2 toPosition, Entity entity)
     {
         var initialAngle = (toPosition-fromPosition).Angle();
         for (int i = 0; i < SpawnCount; i++)
@@ -54,6 +54,7 @@ public partial class SpawnAction : ItemAction
             bullet.SelfResource =  BulletResource;
             bullet.Rotation = initialAngle + RotationOffset +  BetweenRotation * i;
             bullet.Position = fromPosition + Vector2.FromAngle(initialAngle) * SpawnOffset;
+            bullet.Init(_parent.ItemResource.Damage, entity);
             GetTree().CurrentScene.AddChild(bullet);
             if (SpawnTimeOffset > 0)
                 await ToSignal(GetTree().CreateTimer(SpawnTimeOffset), "timeout");

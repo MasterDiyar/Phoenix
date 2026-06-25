@@ -13,7 +13,12 @@ public partial class Item : Node2D
 	[Signal] public delegate void ActionAddedEventHandler(ItemAction action);
 	public override void _Ready()
 	{
-		if (ItemResource == null) return; 
+		if (ItemResource == null) return;
+		foreach (var effect in ItemResource.initialEffects)
+		{
+			effect.Init(this);
+		}
+		
 		foreach (var node in ItemResource.ItemAction)
 		{
 			var act = node.Instantiate<ItemAction>();
