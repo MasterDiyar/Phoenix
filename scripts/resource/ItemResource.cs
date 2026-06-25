@@ -15,6 +15,7 @@ public partial class ItemResource : Resource
     [Export] public bool HFlip = false;   
     [Export] public bool VFlip = false;
     [Export] public int HFrames;
+    [Export] public Vector2 Offset;
     [Export(PropertyHint.Max, "10")] public int FPS;
 
     [ExportGroup("ItemInfo"), Export]

@@ -19,11 +19,13 @@ public partial class AttackAction : ItemAction
     Tween _tween;
     Vector2 _currentPosition;
     float _currentRotation;
+    private Hand _aparent;
     
     
     public override void _Ready()
     {
         base._Ready();
+        _aparent = _parent.GetParent<Hand>();
         _currentRotation = _parent.Rotation;
         _currentPosition = _parent.Position;
     }
@@ -52,8 +54,9 @@ public partial class AttackAction : ItemAction
 
     private void Swing(Vector2 fromPos, Vector2 toPosition)
     {
-        _currentRotation = _parent.Rotation;
-        _currentPosition = _parent.Position;
+        
+        _currentRotation = _aparent.Rotation;
+        _currentPosition = _aparent.Position;
 
         var useSpeed = _parent.ItemResource.UseSpeed;
 
@@ -66,11 +69,11 @@ public partial class AttackAction : ItemAction
 
         float targetRotation = _currentRotation + (Mathf.Pi * 0.33f * swingDirection);
 
-        _tween.TweenProperty(_parent, "rotation", targetRotation, useSpeed * 0.75f);
-        _tween.Parallel().TweenProperty(_parent, "position", thrustPosition, useSpeed * 0.75f);
+        _tween.TweenProperty(_aparent, "rotation", targetRotation, useSpeed * 0.75f);
+        _tween.Parallel().TweenProperty(_aparent, "position", thrustPosition, useSpeed * 0.75f);
 
-        _tween.TweenProperty(_parent, "rotation", _currentRotation, useSpeed * 0.25f);
-        _tween.Parallel().TweenProperty(_parent, "position", _currentPosition, useSpeed * 0.25f);
+        _tween.TweenProperty(_aparent, "rotation", _currentRotation, useSpeed * 0.25f);
+        _tween.Parallel().TweenProperty(_aparent, "position", _currentPosition, useSpeed * 0.25f);
 
         _tween.Finished += () => _onUse = false;
     }

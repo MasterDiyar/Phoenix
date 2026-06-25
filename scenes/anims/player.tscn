@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dqsqx8l0mqp0s" path="res://scenes/prefab/item.tscn" id="5_5bsre"]
 [ext_resource type="Resource" uid="uid://1w7vwbl2vy6m" path="res://resources/item_resource/Sword.tres" id="6_sbuq2"]
 
-[sub_resource type="Resource" id="Resource_8h6vd"]
+[sub_resource type="Resource" id="Resource_fshpy"]
 script = ExtResource("2_jqip1")
-MaxSpeed = 80.0
+MaxHealth = 20.0
+MaxSpeed = 100.0
 metadata/_custom_type_script = "uid://6ua6yqx2kms"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xwf8"]
@@ -19,14 +20,15 @@ height = 16.0
 [node name="Player" type="CharacterBody2D" unique_id=273667404 node_paths=PackedStringArray("OnHandItem", "PlayerAnimation")]
 texture_filter = 3
 script = ExtResource("1_6xwf8")
-playerResource = SubResource("Resource_8h6vd")
 OnHandItem = NodePath("hand_pos/Hand/Item")
 PlayerAnimation = NodePath("player_animation")
+EntityResource = SubResource("Resource_fshpy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1865690906]
 shape = SubResource("CapsuleShape2D_6xwf8")
 
 [node name="player_animation" parent="." unique_id=1808848261 instance=ExtResource("1_nua8h")]
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=629532967]
 zoom = Vector2(3, 3)
@@ -36,7 +38,10 @@ position_smoothing_speed = 1.0
 position = Vector2(-2, 3)
 
 [node name="Hand" parent="hand_pos" unique_id=1192027202 instance=ExtResource("4_8h6vd")]
+scale = Vector2(2, 2)
+maxOffset = 18.0
 
 [node name="Item" parent="hand_pos/Hand" unique_id=1227412727 instance=ExtResource("5_5bsre")]
 show_behind_parent = true
+scale = Vector2(0.5, 0.5)
 ItemResource = ExtResource("6_sbuq2")

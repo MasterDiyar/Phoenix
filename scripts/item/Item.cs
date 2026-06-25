@@ -26,6 +26,7 @@ public partial class Item : Node2D
 			EmitSignal(SignalName.ActionAdded, act);
 		}
 		ItemIcon.Texture = ItemResource.ItemIcon;
+		ItemIcon.Offset = ItemResource.Offset;
 		ItemIcon.FlipH = ItemResource.HFlip;
 		ItemIcon.FlipV = ItemResource.VFlip;
 	}

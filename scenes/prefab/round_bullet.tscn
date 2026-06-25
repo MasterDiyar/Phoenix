@@ -4,11 +4,14 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fshpy"]
 
-[node name="RoundBullet" type="Area2D" unique_id=1254761907 node_paths=PackedStringArray("SelfTexture")]
+[node name="RoundBullet" type="Area2D" unique_id=1254761907 node_paths=PackedStringArray("SelfTexture", "SelfTimer")]
 script = ExtResource("1_wi7sr")
 SelfTexture = NodePath("Sprite2D")
+SelfTimer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=588717626]
 shape = SubResource("CircleShape2D_fshpy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2123707392]
+
+[node name="Timer" type="Timer" parent="." unique_id=2036222205]

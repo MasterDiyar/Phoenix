@@ -16,7 +16,7 @@ region = Rect2(0, 32, 32, 32)
 [sub_resource type="Resource" id="Resource_u03g0"]
 script = ExtResource("4_vjqeq")
 Icon = ExtResource("3_eiuwi")
-Speed = 5.0
+Speed = 200.0
 LifeTime = 1.0
 metadata/_custom_type_script = "uid://c6omy8yekmsch"
 
@@ -33,6 +33,7 @@ Type = "sword"
 Rarity = 2
 ItemIcon = SubResource("AtlasTexture_ulb5y")
 HFlip = true
+Offset = Vector2(12, -12)
 ItemAction = Array[PackedScene]([ExtResource("1_ulb5y"), ExtResource("2_g72so")])
 Damage = 20.0
 UseSpeed = 0.625
