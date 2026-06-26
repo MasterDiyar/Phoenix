@@ -10,13 +10,7 @@ public partial class ItemResource : Resource
     [Export] public int Rarity;
     
     [ExportGroup("Texture"), Export]
-    public Texture2D ItemIcon;
-
-    [Export] public bool HFlip = false;   
-    [Export] public bool VFlip = false;
-    [Export] public int HFrames;
-    [Export] public Vector2 Offset;
-    [Export(PropertyHint.Max, "10")] public int FPS;
+    public IconResource Icon;
 
     [ExportGroup("ItemInfo"), Export]
     public PackedScene[] ItemAction; 

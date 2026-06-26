@@ -1,11 +1,11 @@
 ﻿using Godot;
 
-namespace Dorozhniyi.scripts.player.inventory;
-
+[GlobalClass]
 public partial class AnimatedIcon : TextureRect
 {
-    [Export] public int HFrames = 1; 
-    [Export] public float Fps = 10f; 
+    [Signal] public delegate void ClickedEventHandler();
+    
+    [Export] IconResource Icon;
 
     private AtlasTexture _atlas;
     private double _timePassed;
@@ -13,7 +13,9 @@ public partial class AnimatedIcon : TextureRect
 
     public override void _Ready()
     {
-        if (Texture == null || HFrames <= 1) return;
+        MouseFilter = MouseFilterEnum.Stop;
+        
+        if (Texture == null || Icon.HFrames <= 1) return;
         _atlas = new AtlasTexture { Atlas = (Texture2D)Texture };
         Texture = _atlas; 
         UpdateFrame();
@@ -21,20 +23,39 @@ public partial class AnimatedIcon : TextureRect
 
     public override void _Process(double delta)
     {
-        if (_atlas == null || HFrames <= 1) return;
+        if (_atlas == null || Icon.HFrames <= 1) return;
 
         _timePassed += delta;
-        if (!(_timePassed >= 1f / Fps)) return;
-        _timePassed -= 1f / Fps;
-        _currentFrame = (_currentFrame + 1) % HFrames;
+        if (!(_timePassed >= 1f / Icon.FPS)) return;
+        _timePassed -= 1f / Icon.FPS;
+        _currentFrame = (_currentFrame + 1) % Icon.HFrames;
         UpdateFrame();
     }
 
     private void UpdateFrame()
     {
-        float frameWidth = _atlas.Atlas.GetWidth() / (float)HFrames;
+        float frameWidth = _atlas.Atlas.GetWidth() / (float)Icon.HFrames;
         float frameHeight = _atlas.Atlas.GetHeight();
         
         _atlas.Region = new Rect2(_currentFrame * frameWidth, 0, frameWidth, frameHeight);
+    }
+
+    public void Init(IconResource icon)
+    {
+        Icon = icon;
+        _Ready();
+    }
+    
+    public override void _GuiInput(InputEvent @event)
+    {
+        if (@event is not InputEventMouseButton mouseEvent || !mouseEvent.Pressed) return;
+        switch (mouseEvent.ButtonIndex)
+        {
+            case MouseButton.Left:
+                EmitSignal(SignalName.Clicked);
+                break;
+            case MouseButton.Right:
+                break;
+        }
     }
 }

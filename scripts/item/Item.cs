@@ -25,10 +25,12 @@ public partial class Item : Node2D
 			AddChild(act);
 			EmitSignal(SignalName.ActionAdded, act);
 		}
-		ItemIcon.Texture = ItemResource.ItemIcon;
-		ItemIcon.Offset = ItemResource.Offset;
-		ItemIcon.FlipH = ItemResource.HFlip;
-		ItemIcon.FlipV = ItemResource.VFlip;
+
+		var ce = ItemResource.Icon;
+		ItemIcon.Texture = ce.ItemIcon;
+		ItemIcon.Offset = ce.Offset;
+		ItemIcon.FlipH = ce.HFlip;
+		ItemIcon.FlipV = ce.VFlip;
 	}
 	
 	public void SetItemResource(ItemResource itemResource)

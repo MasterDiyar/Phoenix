@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://7t1gc5ovevpo"]
+
+[ext_resource type="Script" uid="uid://bjgkmbbsqeill" path="res://scripts/player/inventory/Inventory.cs" id="1_avmd0"]
+[ext_resource type="Script" uid="uid://b2e7eosk3bitw" path="res://scripts/player/inventory/AnimatedIcon.cs" id="2_xeaml"]
+
+[node name="Inventory" type="Control" unique_id=1539890645 node_paths=PackedStringArray("Icons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avmd0")
+Icons = [NodePath("HBoxContainer/AnimatedIcon1"), NodePath("HBoxContainer/AnimatedIcon2"), NodePath("HBoxContainer/AnimatedIcon3"), NodePath("HBoxContainer/AnimatedIcon4"), NodePath("HBoxContainer/AnimatedIcon5"), NodePath("HBoxContainer/AnimatedIcon6"), NodePath("HBoxContainer/AnimatedIcon7"), NodePath("HBoxContainer/AnimatedIcon8"), NodePath("HBoxContainer/AnimatedIcon9"), NodePath("HBoxContainer/AnimatedIcon10")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1035351592]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = -40.0
+offset_right = 227.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="AnimatedIcon1" type="TextureRect" parent="HBoxContainer" unique_id=1364209583]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon2" type="TextureRect" parent="HBoxContainer" unique_id=1890797379]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon3" type="TextureRect" parent="HBoxContainer" unique_id=1450092330]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon4" type="TextureRect" parent="HBoxContainer" unique_id=999342900]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon5" type="TextureRect" parent="HBoxContainer" unique_id=678683221]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon6" type="TextureRect" parent="HBoxContainer" unique_id=1974809091]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon7" type="TextureRect" parent="HBoxContainer" unique_id=1503609191]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon8" type="TextureRect" parent="HBoxContainer" unique_id=1557828553]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon9" type="TextureRect" parent="HBoxContainer" unique_id=214644943]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
+
+[node name="AnimatedIcon10" type="TextureRect" parent="HBoxContainer" unique_id=690594380]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xeaml")
+metadata/_custom_type_script = "uid://b2e7eosk3bitw"
