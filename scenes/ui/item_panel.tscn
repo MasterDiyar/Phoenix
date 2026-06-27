@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cdw4gusgb31fj"]
+
+[ext_resource type="Texture2D" uid="uid://dlwaas4rli7fs" path="res://assets/File 2025.png" id="1_oqpv0"]
+
+[node name="Panel" type="Panel" unique_id=1020205641]
+custom_minimum_size = Vector2(300, 82)
+offset_right = 300.0
+offset_bottom = 82.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=695118533]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=759836121]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("1_oqpv0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1878462807]
+custom_minimum_size = Vector2(185, 0)
+custom_maximum_size = Vector2(185, 82)
+layout_mode = 2
+size_flags_vertical = 1
+offset_transform_enabled = true
+text = "some text name of itemdf vdl p of k,dfo kofk o"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=578700552]
+layout_mode = 2
+text = "1"
