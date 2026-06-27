@@ -7,9 +7,14 @@ using Godot;
 public partial class BulletEffect : ItemEffect
 {
     [Export] BulletResource resource;
+    [Export] float offset = 0;
+    
     public override void Apply(ItemAction effect)
     {
-        if (effect is SpawnAction bullet)
-            bullet.BulletResource = resource;
+        if (effect is not SpawnAction bullet) return; 
+        bullet.BulletResource = resource;
+        bullet.SpawnOffset= offset;
     }
+    
+    
 }

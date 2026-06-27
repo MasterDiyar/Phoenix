@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1jiurnr5lwci"
-path="res://.godot/imported/COUPON.png-762bbc6b4f4e9908e6c31829b27a8409.ctex"
+uid="uid://o7pljulb8vmu"
+path="res://.godot/imported/01.png-457fabad5afdd5d2ea41287328601e71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Free-Basic-Pixel-Art-UI-for-RPG/COUPON.png"
-dest_files=["res://.godot/imported/COUPON.png-762bbc6b4f4e9908e6c31829b27a8409.ctex"]
+source_file="res://assets/48x48 Shader Slash/Free/Part 1/01.png"
+dest_files=["res://.godot/imported/01.png-457fabad5afdd5d2ea41287328601e71.ctex"]
 
 [params]
 
