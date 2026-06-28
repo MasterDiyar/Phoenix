@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bsbi136745pal"]
+
+[ext_resource type="Texture2D" uid="uid://dghofnt5imepl" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/wood.png" id="1_ek4x7"]
+[ext_resource type="Script" uid="uid://vmycqs3q7rst" path="res://scripts/resource/ItemResource.cs" id="1_j7dbu"]
+[ext_resource type="Script" uid="uid://dowtnm0wlbjkc" path="res://scripts/resource/IconResource.cs" id="2_87gqc"]
+
+[sub_resource type="Resource" id="Resource_0cgg0"]
+script = ExtResource("2_87gqc")
+ItemIcon = ExtResource("1_ek4x7")
+metadata/_custom_type_script = "uid://dowtnm0wlbjkc"
+
+[resource]
+script = ExtResource("1_j7dbu")
+Name = "Trunk"
+Description = "typical trunc"
+Type = "wood"
+Rarity = 1
+Icon = SubResource("Resource_0cgg0")
+ItemAction = Array[PackedScene]([])
+Damage = 1.0
+initialEffects = null
+metadata/_custom_type_script = "uid://vmycqs3q7rst"
