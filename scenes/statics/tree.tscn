@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bpxhy86dy1p7v"]
 
 [ext_resource type="Texture2D" uid="uid://dtsswyupiypkm" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Plants/spr_deco_tree_02_strip4.png" id="1_n25d7"]
+[ext_resource type="Script" uid="uid://btmftcqchd411" path="res://scripts/statics/Supply.cs" id="1_otp6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n25d7"]
 radius = 5.011099
@@ -8,6 +9,7 @@ radius = 5.011099
 [node name="Tree" type="StaticBody2D" unique_id=1935670556]
 y_sort_enabled = true
 texture_filter = 3
+script = ExtResource("1_otp6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2108063707]
 position = Vector2(0, -9)

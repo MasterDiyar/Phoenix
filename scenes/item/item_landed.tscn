@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://mse7v2384fw8"]
+
+[ext_resource type="Script" uid="uid://dwh0a24hnd0hm" path="res://scripts/item/FallenItem.cs" id="1_2375m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fshpy"]
+
+[node name="ItemLanded" type="Area2D" unique_id=1005642803]
+script = ExtResource("1_2375m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922536518]
+shape = SubResource("CircleShape2D_fshpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1883503569]

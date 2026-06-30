@@ -1,3 +1,4 @@
+using Dorozhniyi.interfaces;
 using Dorozhniyi.scripts.unit;
 using Godot;
 
@@ -16,7 +17,7 @@ public partial class Bullet : Area2D
     private bool _selfDamage;
     private bool _isAnimatable;
     private double _timePassed;
-    private int _hFrames;
+    private int _hFrames, _pierceTime = 0;
     private float _fpsDuration;
 
     public override void _Ready()
@@ -25,8 +26,7 @@ public partial class Bullet : Area2D
         _isAnimatable = SelfResource.HasAnimates;
         _selfTexture.Texture = SelfResource.Icon;
         
-        if (_isAnimatable)
-        {
+        if (_isAnimatable) {
             _hFrames = SelfResource.HFrame;
             _selfTexture.Hframes = _hFrames;
             _fpsDuration = SelfResource.FPS > 0 ? 1f / SelfResource.FPS : 0;
@@ -58,22 +58,21 @@ public partial class Bullet : Area2D
     private void ProcessAnimation(double delta)
     {
         _timePassed += delta;
-        if (_timePassed >= _fpsDuration) {
-            _timePassed -= _fpsDuration;
-            _selfTexture.Frame = (_selfTexture.Frame + 1) % _hFrames; 
-        }
+        if (!(_timePassed >= _fpsDuration)) return;
+        _timePassed -= _fpsDuration;
+        _selfTexture.Frame = (_selfTexture.Frame + 1) % _hFrames;
     }
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body is Entity ent)
-        {
-            if (ent == Shooter && !_selfDamage)
-                return;
+        if (body is not IDamagable ent) return;
+        if (ent == Shooter && !_selfDamage)
+            return;
             
-            // TODO: ent.TakeDamage(Damage);
+        ent.TakeDamage(Damage);
             
+        if (_pierceTime <= 0)
             QueueFree(); 
-        }
+        else _pierceTime --;
     }
 }

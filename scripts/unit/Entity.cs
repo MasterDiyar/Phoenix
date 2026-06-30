@@ -1,9 +1,10 @@
+using Dorozhniyi.interfaces;
 using Dorozhniyi.scripts.resource;
 using Godot;
 
 namespace Dorozhniyi.scripts.unit;
 
-public partial class Entity : CharacterBody2D
+public partial class Entity : CharacterBody2D, IDamagable
 {
     [Export] public UnitResource EntityResource;
 
@@ -19,6 +20,10 @@ public partial class Entity : CharacterBody2D
 
     public virtual void TakeDamage(float damage)
     {
-        
+        Hp -= damage;
+        if (Hp <= 0)
+            OnDeath();
     }
+    
+    public virtual void OnDeath() => QueueFree();
 }
